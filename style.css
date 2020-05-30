@@ -77,5 +77,19 @@ body.sticky-shrinknav-wrapper .sticky-shrinknav-header .sticky-shrinknav-header-
             transform: scale(0);
     transition: all 0.3s ease;
   }
-  
+ 
+  /* button styling */
+  .bacon-btn {
+    background: url("background-bacon.png") no-repeat;
+    background-size: cover;
+    color: #000;
+    cursor: pointer;
+    font-weight: 800;
+    padding: 1em;
+    font-size: 2em;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    box-shadow: 8px 8px 8px #b0b0b0;
+}
   
