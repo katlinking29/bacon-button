@@ -11,38 +11,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Bacon Button</title>
+
 </head>
 <body>
-
-<!-- Header: 
-    1. Navigation Bar at the top
-    2. Include the name of the site
-    3. Background Image -->
-    <header class="sticky-shrinknav-header">
-        <h1 class="sticky-shrinknav-header-title"><img src = "81hsDTw9TaL._AC_SL1500_.jpg"></h1>
-        <h2 class="menu align-center sticky-shrinknav-menu">
-          BACON BUTTON
-        </h2>
-      </header>
-
-      
-  
-  
-
-
-<!-- Section:
-    1. Input field for the user to choose how many recipes they wish to view
-    2. Bacon button
- -->
-
+<!-- Header -->
+  <header class="sticky-shrinknav-header">
+    <h1 class="sticky-shrinknav-header-title"><img src = "81hsDTw9TaL._AC_SL1500_.jpg"></h1>
+    <h2 class="menu align-center sticky-shrinknav-menu">BACON BUTTON</h2>
+  </header>
+    <!-- Section: Intro -->
+    <div class="grid-container grid-padding-x align-center-middle text-center"> <!-- container -->
+      <div class="grid-x align-center-middle">
+        <div class="cell medium-8">
+          <h2>Let's generate some bacon!</h2>
+        </div>
+        <div class="grid-x align-center-middle">
+          <div class="cell medium-5">
+            <p>Push the bacon button below. The generator will provide you with up to three tasty bacon recipes and a dose of inspiration from the legendary bacon lover himself, Ron Swanson.</p>
+          </div>
+        </div>
+    </div>
+    <!-- Section: Recipe number input -->
+    <div class="grid-x align-center-middle recipe-input-row">
+      <div class="cell medium-4">
+        <h5>Number of recipes:</h5>
+      </div>
+      </div>
+        <div class="grid-x align-center-middle">
+        <div class="cell medium-2">
+          <label>(select up to 3)<input type="number" id="recipe-input" value="1" max="3"></label>
+        </div>
+      </div>
+    <!-- Section: Bacon button -->
+    <div class="grid-x align-center-middle button-row">
+      <div class="cell medium-6">
+        <button button type="button" class="bacon-btn">PUSH FOR BACON</button>
+      </div>
+    </div>
 <!-- Section:
     1. Ron Swanson Quote
      -->
-
-<!-- Section: 
-    1. Display recipes -->
-
+<!-- Section: Display recipes -->
+    <div class="grid-x align-center-middle">
+      <div class="cell medium-4">
+        <div class="card" style="width: 300px;">
+          <div class="card-divider">
+            A delicious bacon recipe for you
+          </div>
+          <img id="recipe1-image">
+          <div class="card-section">
+            <p id="recipe1-text"></p>
+          </div>
+        </div>
+      </div> 
+    </div>
 <!-- Footer -->
+  <footer>
+  <div class="grid-x align-center-middle footer">
+    <div class="cell medium-12">
+      <p>&copy; 2020 - Breakout Room 2</p>
+    </div>
+  </div>
+  </footer>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
