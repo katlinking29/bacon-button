@@ -12,26 +12,25 @@ $(function() {
 });
 
 
-function createRecipe() {
+// RON SWANSON API
 
-// var queryURL = "http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3";
-// $.ajax({
-//   url: queryURL,
-//   method: "GET"
-// }).then(function(response) {
-//   console.log(queryURL)
-//   console.log(response);
-
-};
+const url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes';
+const quoteDiv = document.getElementById("quote");
+const button = document.querySelector("#btnQuote");
+var currentQuote = '';
+//const tweet = document.querySelector("#tweet");
 
 
-
-// Event handler for user clicking the bacon button
-$(".bacon-btn").on("click", function() {
-
-// Storing the input value
-var inputNumber = $("#recipe-input").val();
-console.log(inputNumber)
-// runs function to display recipes
-createRecipe(); 
+  
+$(".bacon-btn").on("click", function generateQuote(data) {
+    fetch(url)
+        .then(resp => resp.json())
+        .then(function (data) {
+            quoteDiv.innerHTML = `"${data[0]}"`;
+            currentQuote = `"${data[0]}"`;
+            
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
 });
