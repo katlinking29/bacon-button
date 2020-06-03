@@ -110,6 +110,11 @@ body.sticky-shrinknav-wrapper .sticky-shrinknav-header .sticky-shrinknav-header-
   padding-top: 2em;
 }
 
+/* adding the class hidden so the recipes will not display until the user clicks the button */
+.hidden {
+  display: none;
+}
+
 /* bacon button row */
 .button-row {
   padding: 3em 0 5em 0;
