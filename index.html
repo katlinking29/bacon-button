@@ -1,81 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bacon Button</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css">
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bacon Button</title>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <!-- Header -->
-  <header class="sticky-shrinknav-header">
-    <h1 class="sticky-shrinknav-header-title"><img src = "81hsDTw9TaL._AC_SL1500_.jpg"></h1>
-    <h2 class="menu align-center sticky-shrinknav-menu">BACON BUTTON</h2>
-  </header>
+  <nav class="top-bar topbar-responsive">
+    <div class="top-bar-title">
+      <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+      </span>
+      <a class="topbar-responsive-logo" href="#"><i class="fas fa-bacon">&nbsp;</i>BACON<strong>BUTTON</strong></a>
+    </div>
+    <div id="topbar-responsive" class="topbar-responsive-links">
+      <div class="top-bar-right">
+        <ul class="menu simple vertical medium-horizontal">
+          <li><a href="#">Home</a></li>
+          <li>
+            <button type="button" class="button hollow topbar-responsive-button">Find a Butcher</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     <!-- Section: Intro -->
-    <div class="grid-container grid-padding-x align-center-middle text-center"> <!-- container -->
-      <div class="grid-x align-center-middle">
-        <div class="cell medium-8">
-          <h2>Let's generate some bacon!</h2>
+  <div class="grid-container grid-padding-x"> <!-- page container -->
+    <div class="grid-x introRow">
+      <div class="cell medium-5 introLeft">
+        <h1>Let's generate some bacon!</h1>
+        <div class="grid-x">
+            <p>Push the bacon button to the right! The generator will provide you with up to three tasty bacon recipes and a dose of inspiration from the legendary bacon lover himself, Ron Swanson.</p>
         </div>
-        <div class="grid-x align-center-middle">
-          <div class="cell medium-5">
-            <p>Push the bacon button below. The generator will provide you with up to three tasty bacon recipes and a dose of inspiration from the legendary bacon lover himself, Ron Swanson.</p>
-          </div>
-        </div>
-    </div>
     <!-- Section: Recipe number input -->
-    <div class="grid-x align-center-middle recipe-input-row">
-      <div class="cell medium-4">
-        <h5>Number of recipes:</h5>
-      </div>
-      </div>
-        <div class="grid-x align-center-middle">
-        <div class="cell medium-2">
-          <label>(select up to 3)<input type="number" id="recipe-input" value="1" max="3"></label>
+        <div class="grid-x recipe-input-row">
+            <h5>Number of recipes:</h5>
+          </div>
+        <div class="grid-x">
+          <label class="text-white">(select up to 3)<input type="number" id="recipe-input" value="1" max="3"></label>
         </div>
       </div>
-    <!-- Section: Bacon button -->
-    <div class="grid-x align-center-middle button-row">
-      <div class="cell medium-6">
-        <button button type="button" id= "btnQuote" class="bacon-btn">PUSH FOR BACON</button>
+      <!-- Section: Bacon button -->
+      <div class="grid-x align-center-middle button-row">
+        <div class="cell medium-8">
+          <button type="button" id= "btnQuote" class="bacon-btn">PUSH FOR BACON</button>
+        </div>
       </div>
     </div>
-<!-- Section:
-    1. Ron Swanson Quote
-     --> <div class="Ron swanson">
-    <div class="row align-middle align-justify featured-items-wrapper">
-      <h2 class="featured-items-title">Ron Swanson Quote:</h2>
-      <p>
-        “Just give me all the bacon and eggs you have. Wait … I worry what you heard was, ‘Give me a lot of bacon and eggs.’ What I said was, give me all the bacon and eggs you have. Do you understand?”      
-       </p>
-       </div>
-<!-- Section: Display recipes -->
-    <div class="grid-x align-center-middle">
-      <div class="cell medium-4">
-        <div class="card" style="width: 300px;">
-          <div class="card-divider " id="quote">
-            A Ron Swanson Quote for You
-          </div>
-          <img id="image">
-          <div class="card-section">
-            <p id="text"></p>
-          </div>
-        </div>
+<!-- Section: Ron Swanson Quotes -->
+    <div class="grid-x align-center-middle ronRow">
+      <div class="cell medium-3" id="ronImageDiv">
+          <img id="ron-image">
       </div> 
+      <div class="cell medium-6">
+          <blockquote class="text-left" id="quote">
+          </blockquote>
+      </div>
     </div>
     <!-- Card to Display Recipes (will display when the user clicks the bacon button) -->
     <div class="grid-x align-center-middle">
       <div class="cell medium-4">
         <div class="card recipe-card hidden" style="width: 300px;">
-          <div class="card-divider"></div>
             <h1 id="recipe-title"></h1>
           <img id="recipe-image">
           <div class="card-section">
@@ -84,16 +76,16 @@
         </div>
       </div> 
     </div>
+  </div>
 <!-- Footer -->
-  <footer>
-  <div class="grid-x align-center-middle footer">
+  <footer class="grid-x align-center-middle">
+  <div class="footer">
     <div class="cell medium-12">
       <p>&copy; 2020 - Breakout Room 2</p>
     </div>
   </div>
   </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
 <script src="script.js"></script>
 </body>
 </html>
