@@ -2,107 +2,207 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    padding-top: 330px;
-    background-color: lightblue;
+    background-color: #C74928;
+    color: #FFF;
+    /* background-image: url("bacon-bg.png"); */
+  }
+
+/* start navigation code */
+  .topbar-responsive {
+    background: rgb(123, 28, 2);
+    padding: 1rem 1.5rem;
   }
   
-.sticky-shrinknav-menu {
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%);
-    bottom: 0;
-    height: 3.75rem;
-    line-height: 3.75rem;
-    width: 100%;
-    background-color: rgba(23, 121, 186, 0.1);
-    transition: all 0.5s ease;
-    color: cornsilk;
+  .topbar-responsive .topbar-responsive-logo {
+    color: #F4C595;
+    vertical-align: middle;
+    font-size: 1.5em;
   }
   
-.sticky-shrinknav-menu li {
-    border-radius: 2px;
-    transition: all 0.3s ease;
+  .topbar-responsive .menu {
+    background: rgb(123, 28, 2);
   }
   
-.sticky-shrinknav-menu li:hover {
-    box-shadow: 0 0 0 1px #fefefe;
+  .topbar-responsive .menu li:last-of-type {
+    margin-right: 0;
   }
   
-.sticky-shrinknav-menu a {
-    color: #fefefe;
+  button.menu-icon {
+    display: none;
   }
   
-.sticky-shrinknav-header-title {
-    transition: all 0.3s ease;
-    position: relative;
-    -webkit-transform: translateY(-1.875rem);
-        -ms-transform: translateY(-1.875rem);
-            transform: translateY(-1.875rem);
-    margin-bottom: 0;
-    color: #fefefe;
+  .topbar-responsive .menu a {
+    color: #F4C595;
+    transition: color 0.15s ease-in;
   }
   
-.sticky-shrinknav-header {
-    width: 100%;
-    height: 300px;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    background-color: #090b0c;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    transition: all 0.5s ease;
+  .topbar-responsive .menu a:hover {
+    color: #FFF;
   }
   
-body.sticky-shrinknav-wrapper {
-    padding-top: 130px;
+  @media screen and (max-width: 39.9375em) {
+    .topbar-responsive .menu a {
+      padding: 0.875rem 0;
+    }
   }
   
-body.sticky-shrinknav-wrapper .sticky-shrinknav-header {
-    height: 3.75rem;
-    background-color: rgba(23, 121, 186, 0.9);
+  .topbar-responsive .menu .topbar-responsive-button {
+    color: #F4C595;
+    border-color: #F4C595;
+    border-radius: 5000px;
+    transition: color 0.15s ease-in, border-color 0.15s ease-in;
   }
   
-body.sticky-shrinknav-wrapper .sticky-shrinknav-header .sticky-shrinknav-header-title {
-    -webkit-transform: scale(0);
-        -ms-transform: scale(0);
-            transform: scale(0);
-    transition: all 0.3s ease;
+  .topbar-responsive .menu .topbar-responsive-button:hover {
+    color: #FFF;
+    border-color: #FFF;
   }
+  
+  @media screen and (max-width: 39.9375em) {
+    .topbar-responsive .menu .topbar-responsive-button {
+      width: 100%;
+      margin: 0.875rem 0;
+    }
+  }
+  
+  @media screen and (max-width: 39.9375em) {
+    .topbar-responsive {
+      padding: 0.75rem;
+    }
+    .topbar-responsive .top-bar-title {
+      position: relative;
+      width: 100%;
+    }
+    .topbar-responsive .top-bar-title span {
+      position: absolute;
+      right: 0;
+      border: 1px solid #fefefe;
+      border-radius: 5px;
+      padding: 0.25rem 0.45rem;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+    }
+    .topbar-responsive .top-bar-title span .menu-icon {
+      margin-bottom: 4px;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes slideDown {
+    0% {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%);
+    }
+    100% {
+      -webkit-transform: translateY(0%);
+              transform: translateY(0%);
+    }
+  }
+  
+  @keyframes slideDown {
+    0% {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%);
+    }
+    100% {
+      -webkit-transform: translateY(0%);
+              transform: translateY(0%);
+    }
+  }
+  
+  @media screen and (max-width: 39.9375em) {
+    .topbar-responsive-links {
+      -webkit-animation-fill-mode: both;
+              animation-fill-mode: both;
+      -webkit-animation-duration: 0.5s;
+              animation-duration: 0.5s;
+      width: 100%;
+      -webkit-animation: fadeIn 1s ease-in;
+              animation: fadeIn 1s ease-in;
+    }
+  }
+/* end navigation code */
+
+h1 {
+  font-weight: bold;
+  line-height: 1.1em;
+}
+
+.introRow {
+  padding: 4em 2em 2em 1em;
+}
+
+.introLeft {
+  /* background-color: #C74928; */
+  padding: 2em;
+  /* border: 1px solid #330C01 ; */
+
+}
 
 /* button styling */
 .bacon-btn {
   text-decoration: none;
   background: url("background-bacon.png") no-repeat;
   background-size: cover;
-  color: #000;
+  color: #330C01;
   cursor: pointer;
   font-weight: 800;
   padding: 1em;
   font-size: 2em;
-  width: 250px;
-  height: 250px;
-  border: 3px #000 solid;
+  width: 275px;
+  height: 275px;
+  border: 3px solid #330C01;
   border-radius: 50%;
-  box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -6px 2px 2px rgba(161, 161, 161, 0.5);
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,.4), inset 0 0 10px rgba(55, 9, 0, 0.95);
 }
   
 *:focus {
   outline: 0;
 }
 .bacon-btn:active{
-  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 6px 2px 2px rgb(120, 42, 23), inset 0px -3px 1px 1px rgba(212, 163, 155, 0.5);
+  box-shadow: 0px 8px 10px 0px rgba(88, 19, 0, 0.3), inset 0px 6px 2px 2px rgb(115, 23, 0), inset 0px -3px 1px 1px rgba(212, 163, 155, 0.5);
+}
+
+.text-white {
+  color: #FFF;
+}
+
+/* ron quote section */
+.ronQuoteStyles {
+  border: 1px solid #330C01;
+  background-color: #C74928;
+  padding: 1em;
+  margin: 1em;
+}
+
+#quote {
+  padding-right: 1em;
+  font-size: 1.5em;
+  border: none;
+  color: #FFF;
+}
+
+.ronRow {
+  padding: 1em;
 }
 
 /* recipe row */
@@ -118,11 +218,14 @@ body.sticky-shrinknav-wrapper .sticky-shrinknav-header .sticky-shrinknav-header-
 /* bacon button row */
 .button-row {
   padding: 3em 0 5em 0;
+  margin: auto;
 }
 
 /* footer */
-.footer{
-  padding-top: 3em;
+footer {
+  padding: 3em 0;
+  background-color: rgb(123, 28, 2);
+  margin: 0;
 }
 
 /* media query for devices 640px and below */
@@ -132,3 +235,5 @@ body.sticky-shrinknav-wrapper .sticky-shrinknav-header .sticky-shrinknav-header-
     margin: 0 auto;
   }
 }
+
+
