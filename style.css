@@ -210,9 +210,44 @@ h1 {
   padding-top: 2em;
 }
 
-/* adding the class hidden so the recipes will not display until the user clicks the button */
-.hidden {
-  display: none;
+/* recipe card section */
+
+#recipe-section {
+  background-color: #C74928;
+  margin-bottom: 30px;
+}
+
+.recipe-card {
+  height: 400px;
+  width: 400px;
+  background-color: #F4C595;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 5px 5px 15px 5px #330C01; 
+  border: 1px solid #330C01;
+  float: left;
+
+}
+
+#recipe-title {
+  font-size: 32px;
+  text-align: center;
+}
+
+#recipe-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 50%;
+  height: 50%;
+}
+
+#recipe-link {
+  font-size: 18px;
+  text-align: center;
+  color: black;
 }
 
 /* bacon button row */
