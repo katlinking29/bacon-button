@@ -4,7 +4,6 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: #C74928;
     color: #FFF;
-    /* background-image: url("bacon-bg.png"); */
   }
 
 /* start navigation code */
@@ -142,9 +141,14 @@ body {
   }
 /* end navigation code */
 
+/* element and intro styles */
 h1 {
   font-weight: bold;
   line-height: 1.1em;
+}
+
+.main-contain {
+  margin-top: auto;
 }
 
 .introRow {
@@ -152,10 +156,11 @@ h1 {
 }
 
 .introLeft {
-  /* background-color: #C74928; */
   padding: 2em;
-  /* border: 1px solid #330C01 ; */
+}
 
+.text-white {
+  color: #FFF;
 }
 
 /* button styling */
@@ -182,16 +187,30 @@ h1 {
   box-shadow: 0px 8px 10px 0px rgba(88, 19, 0, 0.3), inset 0px 6px 2px 2px rgb(115, 23, 0), inset 0px -3px 1px 1px rgba(212, 163, 155, 0.5);
 }
 
-.text-white {
-  color: #FFF;
+/* bacon button divs */
+.button-bg {
+  margin: auto;
+  background: url('pan.png') no-repeat center;
+  background-size: 90%;
+  width: 500px;
+  height: 500px;
+  position: relative;
+}
+
+.button-div .bacon-btn{
+  position: absolute;
+  width: 275px;
+  height: 275px;
+  right: 75px;
+  top: 58px;
 }
 
 /* ron quote section */
 .ronQuoteStyles {
-  border: 1px solid #330C01;
-  background-color: #C74928;
-  padding: 1em;
-  margin: 1em;
+  background-color: #94351E;
+  margin-top: 2em;
+  outline: 3px solid #330C01;
+  outline-offset: .5em;
 }
 
 #quote {
@@ -211,64 +230,63 @@ h1 {
 }
 
 /* recipe card section */
-
-#recipe-section {
-  background-color: #C74928;
-  margin-bottom: 30px;
+.recipe-header {
+  margin-top: 2em;
+  padding: 1em 0 2em 0;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-.recipe-card {
-  height: 400px;
-  width: 400px;
-  background-color: #F4C595;
-  padding: 20px;
-  margin: 20px;
-  box-shadow: 5px 5px 15px 5px #330C01; 
-  border: 1px solid #330C01;
-  float: left;
+.card {
+  outline: 3px solid #330C01;
+  outline-offset: .5em;
+  background-color: #FFF;
+}
 
+.recipe-grid {
+  padding-bottom: 5em;
+}
+
+.card-section {
+  height: 100%;
 }
 
 #recipe-title {
-  font-size: 32px;
+  font-size: 24px;
+  font-weight: bold;
   text-align: center;
+  line-height: 1.1em;
+  color: #330C01;
+  padding-bottom:.5em;
 }
 
 #recipe-image {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  width: 50%;
-  height: 50%;
-}
-
-#recipe-link {
-  font-size: 18px;
-  text-align: center;
-  color: black;
-}
-
-/* bacon button row */
-.button-row {
-  padding: 3em 0 5em 0;
   margin: auto;
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  padding-bottom: .5em;
+}
+
+a#recipe-link  {
+  font-size: 18px;
+  text-align: center!important;
+  color: #330C01;
 }
 
 /* footer */
 footer {
-  padding: 3em 0;
+  padding: 3em 0 1em 0;
   background-color: rgb(123, 28, 2);
   margin: 0;
+  width: 100%
 }
 
 /* media query for devices 640px and below */
 @media screen and (max-width: 640px) {
-  #recipe-input {
-    width: 25%;
+  .button-row {
+    width: 100%;
     margin: 0 auto;
   }
 }
-
-
