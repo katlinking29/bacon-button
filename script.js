@@ -56,6 +56,11 @@ function createRecipe() {
       // Choose a random index number within the array to choose a recipe 
       var randomRecipe = Math.floor(Math.random() * 10);
 
+      // Skip over the iteration if the same recipe is chosen twice
+      if (randomRecipe === response.hits[randomRecipe]) {
+        continue
+      };
+
       // Create cards that will house the recipes
       var recipeCell = $("<div>").attr("class", "cell");
       $("#recipes-here").append(recipeCell);
