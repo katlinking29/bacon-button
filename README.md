@@ -10,6 +10,6 @@ GitHub link to page: (https://katlinking29.github.io/bacon-button/)
 
 The following image demonstrates the application functionality:
 
-![bacon button](./bacon-button-demo.png)
+![bacon button](./bacon-demo.png)
 
 
