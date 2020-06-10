@@ -52,15 +52,24 @@ function createRecipe() {
     recipeDiv.append(recipeHeader);
     $("#recipe-header").append(recipeDiv);
 
-  for (i = 0; i < parsedInput; i++) {
-      // Choose a random index number within the array to choose a recipe 
-      var randomRecipe = Math.floor(Math.random() * 10);
+    // creating an empty array that will story the random numbers that are generated
+    var ranNumArr = [];
+    console.log(ranNumArr);
+    
 
-      // Skip over the iteration if the same recipe is chosen twice
-      if (randomRecipe === response.hits[randomRecipe]) {
-        continue
-      };
+    for (i = 0; i < parsedInput; i++) {
+      // generate a random number based on the length of the recipe API's array of bacon recipes (10) and push it into the ranNumArr 
+      var randomNumber = Math.floor(Math.random() * 10);
+      ranNumArr.push(randomNumber);
+      // If the value of the index in the array is equal to the previous index's value, repeat the iteration
+      if (ranNumArr[i] === ranNumArr[i] - 1){
+          i = i - 1
+        }
+      // else, display the recipe on the card
+      else {
 
+      randomRecipe = ranNumArr[i]
+      
       // Create cards that will house the recipes
       var recipeCell = $("<div>").attr("class", "cell");
       $("#recipes-here").append(recipeCell);
@@ -86,7 +95,8 @@ function createRecipe() {
       recipeSection.append(cardTitleE1); 
       recipeSection.append(cardImageE1);
       recipeSection.append(cardTextE1); 
-      }
+    }
+  }
  
   })
 };
