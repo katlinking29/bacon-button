@@ -23,6 +23,11 @@ $(".bacon-btn").on("click", function generateQuote(data) {
         })
     // runs function to generate recipes
     createRecipe();
+
+    // reveals divs for quote and recipes
+    $(".ronRow").removeClass("hidden");
+    $(".recipe-grid").removeClass("hidden");
+
 });
 
 function createRecipe() {
@@ -38,6 +43,10 @@ function createRecipe() {
     // The number of recipes the user would like to display
     var recipeNumber = $("#recipe-input").val();
     var parsedInput = parseInt(recipeNumber);
+    // prevents users from inputing number larger than 3 
+    if (parsedInput > 3) {
+      parsedInput = 3;
+    }
 
     // on click - clears current recipe selection
     $("#recipes-here").empty();
@@ -62,7 +71,7 @@ function createRecipe() {
       };
 
       // Create cards that will house the recipes
-      var recipeCell = $("<div>").attr("class", "cell");
+      var recipeCell = $("<div>").attr("class", "cell recipe-cell");
       $("#recipes-here").append(recipeCell);
       var recipeCard = $("<div>").attr("class", "card");
       recipeCell.append(recipeCard);
@@ -87,6 +96,9 @@ function createRecipe() {
       recipeSection.append(cardImageE1);
       recipeSection.append(cardTextE1); 
       }
- 
   })
 };
+
+
+
+

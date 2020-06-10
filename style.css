@@ -4,7 +4,14 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: #C74928;
     color: #FFF;
+    min-height: 100vh;
+    flex-direction: column;
+    display: flex;
   }
+
+.hidden {
+  display: none;
+}  
 
 /* start navigation code */
   .topbar-responsive {
@@ -144,19 +151,21 @@ body {
 /* element and intro styles */
 h1 {
   font-weight: bold;
-  line-height: 1.1em;
+  line-height: 1.2em;
+  font-size: 2rem;
 }
 
 .main-contain {
   margin-top: auto;
+  flex: 1;
 }
 
 .introRow {
-  padding: 4em 2em 2em 1em;
+  padding: 4em 2em .5em 2em;
 }
 
 .introLeft {
-  padding: 2em;
+  padding: 1em;
 }
 
 .text-white {
@@ -241,6 +250,7 @@ h1 {
   outline: 3px solid #330C01;
   outline-offset: .5em;
   background-color: #FFF;
+  padding: 1em 1em;
 }
 
 .recipe-grid {
@@ -280,13 +290,70 @@ footer {
   padding: 3em 0 1em 0;
   background-color: rgb(123, 28, 2);
   margin: 0;
-  width: 100%
+  width: 100%;
+  position: sticky;
 }
 
-/* media query for devices 640px and below */
-@media screen and (max-width: 640px) {
+/* media query for mobile devices */
+@media screen and (max-width: 39.9375em) {
   .button-row {
     width: 100%;
     margin: 0 auto;
+    padding: 2em 0 2em 0;
+  }
+
+.topbar-responsive .top-bar-title {
+    text-align: center; 
+  } 
+
+  .button-bg {
+      background: none; 
+      width: 100%;
+      height: 100%;
+      position: static;
+  } 
+
+  .button-div .bacon-btn {
+    position: static;
+  } 
+
+  #ronImageDiv {
+    text-align: center;
+  } 
+
+  .recipe-header{
+    text-align: center;
+  } 
+
+  .recipe-header{
+    text-align: center;
+  } 
+
+  .introRow{
+    padding: 2em 2em .5em 2em;
+  } 
+
+  .recipe-cell {
+    padding: 1em 0;
   }
 }
+
+/* tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+.button-div .bacon-btn {
+    width: 200px;
+    height: 200px;
+    right: 43px;
+    top: 110px;
+}
+}
+
+/* larger tablet */
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+  .button-div .bacon-btn {
+    width: 275px;
+    height: 275px;
+    right: 62px;
+    top: 58px;
+  }
+  }

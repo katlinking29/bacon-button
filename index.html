@@ -6,8 +6,6 @@
   <title>Bacon Button</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="style.css">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -15,17 +13,14 @@
 <!-- Header -->
   <nav class="top-bar topbar-responsive">
     <div class="top-bar-title">
-      <span data-responsive-toggle="topbar-responsive" data-hide-for="small">
-        <button class="menu-icon" type="button" data-toggle></button>
-      </span>
-      <a class="topbar-responsive-logo" href="#"><i class="fas fa-bacon">&nbsp;</i>BACON<strong>BUTTON</strong></a>
+      <a class="topbar-responsive-logo" href="index.html"><i class="fas fa-bacon">&nbsp;</i>BACON<strong>BUTTON</strong></a>
     </div>
     <div id="topbar-responsive" class="topbar-responsive-links">
       <div class="top-bar-right">
         <ul class="menu simple vertical medium-horizontal">
           <li><a href="index.html">Home</a></li>
           <li>
-            <button type="button" class="button hollow topbar-responsive-button">Find a Butcher</button>
+            <button type="button" class="button hollow topbar-responsive-button">Find a Restaurant</button>
           </li>
         </ul>
       </div>
@@ -37,7 +32,7 @@
       <div class="cell medium-6 introLeft">
         <h1>Let's generate some bacon!</h1>
         <div class="grid-x">
-            <p>Push the bacon button to the right! The generator will provide you with up to three tasty bacon recipes and a dose of inspiration from the legendary bacon lover himself, Ron Swanson.</p>
+            <p>Push the bacon button! The generator will provide you with up to three tasty bacon recipes and a dose of inspiration from the legendary bacon lover himself, Ron Swanson.</p>
         </div>
     <!-- Section: Recipe number input -->
         <div class="grid-x recipe-input-row">
@@ -48,7 +43,7 @@
         </div>
       </div>
       <!-- Section: Bacon button -->
-      <div class="grid-x button-row">
+      <div class="grid-x button-row medium-6">
         <div class="button-bg">
           <div class="cell medium-9 button-div">
             <button type="button" id= "btnQuote" class="bacon-btn ">PUSH FOR BACON</button>
@@ -57,7 +52,7 @@
       </div>
     </div>
 <!-- Section: Ron Swanson Quotes -->
-    <div class="grid-x align-center-middle ronRow">
+    <div class="grid-x align-center-middle ronRow hidden">
       <div class="cell medium-3" id="ronImageDiv">
           <img id="ron-image">
       </div> 
@@ -67,10 +62,10 @@
       </div>
     </div>
     <!-- Card to Display Recipes (will display when the user clicks the bacon button) -->
-    <div class="grid-container recipe-grid">
+    <div class="grid-container recipe-grid hidden">
       <div id="recipe-header">
       </div>
-      <div class="grid-x grid-margin-x small-up-2 medium-up-3" id="recipes-here">
+      <div class="grid-x grid-margin-x small-up-1 medium-up-3" id="recipes-here">
       </div>
     </div>
   </div> <!-- end page container-->
