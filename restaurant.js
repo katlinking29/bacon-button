@@ -71,13 +71,15 @@ function getRestaurants (){
         console.log(rating);
         console.log(restaurantImage);
 
+        var restaurantNameDisplay = $("<p>").text(restaurantName);
+        var restaurantAddressDisplay = $("<p>").text("Address: " + restaurantAddress);
+        var ratingDisplay = $("<p>").text("Rating: " + rating);
 
-      
 
-        var card = $("<div>").addClass("card");
+        var card = $("<div>").addClass("cardTwo");
         var cardBody = $("<div>").addClass("card-body");
 
-        $(cardBody).append(restaurantName, restaurantAddress, rating);
+        $(card).append(restaurantNameDisplay, restaurantAddressDisplay, ratingDisplay);
         $(card).append(cardBody);
         $(".restaurants-list").append(card)
 
