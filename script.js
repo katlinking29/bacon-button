@@ -61,41 +61,47 @@ function createRecipe() {
     recipeDiv.append(recipeHeader);
     $("#recipe-header").append(recipeDiv);
 
+  // Shuffle through an array of 10 values (1-10). The recipe API's array of recipes where bacon is an ingredient has a length of 10.
+  const arr = [...Array(10).keys()];
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = (Math.random() * (i + 1)) | 0;
+    const temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  };
+  
+  //Creating a for loop that will create the number of recipe cards based on the user's input
   for (i = 0; i < parsedInput; i++) {
-      // Choose a random index number within the array to choose a recipe 
-      var randomRecipe = Math.floor(Math.random() * 10);
-
-      // Skip over the iteration if the same recipe is chosen twice
-      if (randomRecipe === response.hits[randomRecipe]) {
-        continue
-      };
-
-      // Create cards that will house the recipes
-      var recipeCell = $("<div>").attr("class", "cell recipe-cell");
-      $("#recipes-here").append(recipeCell);
-      var recipeCard = $("<div>").attr("class", "card");
-      recipeCell.append(recipeCard);
-      var recipeSection = $("<div>").attr("class", "card-section");
-      recipeCard.append(recipeSection);  
-      var cardTitleE1 = $("<h1>"); 
-      cardTitleE1.attr("id", "recipe-title"); 
-      var cardImageE1 = $("<img>"); 
-      cardImageE1.attr("id", "recipe-image"); 
-      var cardTextE1 = $("<a>"); 
-      cardTextE1.attr("id", "recipe-link");
-      
-      // Adding the recipe title, url, and image from the API call
-      cardTitleE1.text(response.hits[randomRecipe].recipe.label);
-      cardTextE1.text("Click here for link to recipe");
-      cardTextE1.attr("href", response.hits[randomRecipe].recipe.url);
-      cardTextE1.attr("target", "_blank");
-      cardImageE1.attr("src", response.hits[randomRecipe].recipe.image);
-      
-      // Display the recipe on the DOM
-      recipeSection.append(cardTitleE1); 
-      recipeSection.append(cardImageE1);
-      recipeSection.append(cardTextE1); 
-      }
+        
+        // the number in the shuffled array will determine the recipe that is displayed from the API's array
+        randomRecipe = arr[i];
+    
+        // Create cards that will house the recipes
+        var recipeCell = $("<div>").attr("class", "cell");
+        $("#recipes-here").append(recipeCell);
+        var recipeCard = $("<div>").attr("class", "card");
+        recipeCell.append(recipeCard);
+        var recipeSection = $("<div>").attr("class", "card-section");
+        recipeCard.append(recipeSection);  
+        var cardTitleE1 = $("<h1>"); 
+        cardTitleE1.attr("id", "recipe-title"); 
+        var cardImageE1 = $("<img>"); 
+        cardImageE1.attr("id", "recipe-image"); 
+        var cardTextE1 = $("<a>"); 
+        cardTextE1.attr("id", "recipe-link");
+        
+        // Adding the recipe title, url, and image from the API call
+        cardTitleE1.text(response.hits[randomRecipe].recipe.label);
+        cardTextE1.text("Click here for link to recipe");
+        cardTextE1.attr("href", response.hits[randomRecipe].recipe.url);
+        cardTextE1.attr("target", "_blank");
+        cardImageE1.attr("src", response.hits[randomRecipe].recipe.image);
+        
+        // Display the recipe on the DOM
+        recipeSection.append(cardTitleE1); 
+        recipeSection.append(cardImageE1);
+        recipeSection.append(cardTextE1);
+}
   })
 };
 
