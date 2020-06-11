@@ -408,9 +408,16 @@ footer {
 
   .cardTwo {
     background-color: rgb(123, 28, 2);
-    font-weight: bold;
-    font-size: 25px;
     border: 3px;
     outline: 3px solid #330C01;
     padding: 10px;
+    margin: 1em;
+  }
+
+  .cardTwo h4 {
+    font-weight: bold;
+  }
+
+  .restaurants-list {
+    padding-bottom: 2em;
   }

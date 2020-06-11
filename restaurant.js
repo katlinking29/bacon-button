@@ -71,7 +71,7 @@ function getRestaurants (){
         console.log(rating);
         console.log(restaurantImage);
 
-        var restaurantNameDisplay = $("<p>").text(restaurantName);
+        var restaurantNameDisplay = $("<h4>").text(restaurantName);
         var restaurantAddressDisplay = $("<p>").text("Address: " + restaurantAddress);
         var ratingDisplay = $("<p>").text("Rating: " + rating);
 
