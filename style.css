@@ -13,6 +13,16 @@ body {
   display: none;
 }  
 
+.center {
+  text-align: center;
+}
+
+label {
+  text-align: center;
+  color: #FFF;
+  font-size: 1em;
+}
+
 /* start navigation code */
   .topbar-responsive {
     background: rgb(123, 28, 2);
@@ -152,7 +162,7 @@ body {
 h1 {
   font-weight: bold;
   line-height: 1.2em;
-  font-size: 2rem;
+  /* font-size: 2rem; */
 }
 
 .main-contain {
