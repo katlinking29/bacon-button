@@ -1,43 +1,37 @@
-// header code
-$(function() {
-  $(window).scroll(function() {
-    var winTop = $(window).scrollTop();
-    if (winTop >= 30) {
-      $("body").addClass("sticky-shrinknav-wrapper");
-    } else{
-      $("body").removeClass("sticky-shrinknav-wrapper");
-    }
-  });
-
-});
-
-
-// RON SWANSON API
+// Ron Swanson API
 
 const url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes';
 const quoteDiv = document.getElementById("quote");
 const button = document.querySelector("#btnQuote");
 var currentQuote = '';
-//const tweet = document.querySelector("#tweet");
 
-
-  
+// bacon button
 $(".bacon-btn").on("click", function generateQuote(data) {
+  // runs Ron quote
     fetch(url)
         .then(resp => resp.json())
         .then(function (data) {
             quoteDiv.innerHTML = `"${data[0]}"`;
             currentQuote = `"${data[0]}"`;
-            
+            // adds Ron image to quote
+            $("#ronImageDiv").html("<img src='ron.png' />")
+            $(".ronRow").addClass("ronQuoteStyles");
+
         })
         .catch(function (error) {
             console.log(error)
         })
+    // runs function to generate recipes
+    createRecipe();
 
-    createRecipe()
+    // reveals divs for quote and recipes
+    $(".ronRow").removeClass("hidden");
+    $(".recipe-grid").removeClass("hidden");
+
 });
 
 function createRecipe() {
+
   // URL for the EDAMAM Recipe API 
   var queryURL = "https://api.edamam.com/search?q=bacon&app_id=ff63ef36&app_key=cd232eacc506b1455a6561f101c12d0a&from=0&to50";
  
@@ -47,63 +41,64 @@ function createRecipe() {
   }).then(function(response) {
     console.log(response);
     // The number of recipes the user would like to display
-    var recipeNumber = $("#recipe-input").val(); 
-    console.log(recipeNumber)
+    var recipeNumber = $("#recipe-input").val();
+    var parsedInput = parseInt(recipeNumber);
+    // prevents users from inputing number larger than 3 
+    if (parsedInput > 3) {
+      parsedInput = 3;
+    }
 
-    // Choose a random index number within the array to choose a recipe 
-    var randomRecipe = Math.floor(Math.random() * 10);
+    // on click - clears current recipe selection
+    $("#recipes-here").empty();
+    $("#recipe-header").empty();
 
-    for (i = 0; i < recipeNumber; i++) {
-      // grabbing HTML elements for the cards
-      var recipeCard = $(".recipe-card");
-      var recipeTitle = $("#recipe-title");
-      var recipeImage = $("#recipe-image");
-      var recipeLink = $("#recipe-link");
-      // Adding the recipe title, url, and image from the API call
-      recipeTitle.text(response.hits[randomRecipe].recipe.label);
-      recipeLink.text(response.hits[randomRecipe].recipe.url);
-      recipeImage.attr("src", response.hits[randomRecipe].recipe.image);
-      // Display the recipe on the DOM
-      recipeCard.removeClass("hidden"); 
-      recipeCard.append(recipeTitle); 
-      recipeCard.append(recipeImage);
-      recipeCard.append(recipeLink); 
+    // header for recipes
+    var recipeDiv = $("<div>");
+    recipeDiv.addClass("recipe-div");
+    var recipeHeader = $("<h4>");
+    recipeHeader.addClass("recipe-header");
+    recipeHeader.text("Bacon recipes");
+    recipeDiv.append(recipeHeader);
+    $("#recipe-header").append(recipeDiv);
 
-      if (recipeNumber === 2 || recipeNumber === 3) {
-      // Create another card and append it after the first recipe card
-      var anotherRecipeCard = $("<div>"); 
-      anotherRecipeCard.addClass("card recipe-card")
-      var cardDividerE1 = $("<div>"); 
-      cardDividerE1.addClass("card-divider")
+  for (i = 0; i < parsedInput; i++) {
+      // Choose a random index number within the array to choose a recipe 
+      var randomRecipe = Math.floor(Math.random() * 10);
+
+      // Skip over the iteration if the same recipe is chosen twice
+      if (randomRecipe === response.hits[randomRecipe]) {
+        continue
+      };
+
+      // Create cards that will house the recipes
+      var recipeCell = $("<div>").attr("class", "cell recipe-cell");
+      $("#recipes-here").append(recipeCell);
+      var recipeCard = $("<div>").attr("class", "card");
+      recipeCell.append(recipeCard);
+      var recipeSection = $("<div>").attr("class", "card-section");
+      recipeCard.append(recipeSection);  
       var cardTitleE1 = $("<h1>"); 
       cardTitleE1.attr("id", "recipe-title"); 
       var cardImageE1 = $("<img>"); 
       cardImageE1.attr("id", "recipe-image"); 
-      var cardSectionE1 = $("<div>"); 
-      cardSectionE1.addClass("card-section"); 
-      var cardTextE1 = $("<p>"); 
+      var cardTextE1 = $("<a>"); 
       cardTextE1.attr("id", "recipe-link");
-      cardSectionE1.append(cardTextE1); 
-      anotherRecipeCard.append(cardDividerE1); 
-      anotherRecipeCard.append(cardTitleE1); 
-      anotherRecipeCard.append(cardImageE1); 
-      anotherRecipeCard.append(cardSectionE1); 
       
-      // Grab the elements that were created with these ids and store them in variables
-      var recipeTitle = $("#recipe-title");
-      var recipeImage = $("#recipe-image");
-      var recipeLink = $("#recipe-link");
       // Adding the recipe title, url, and image from the API call
-      recipeTitle.text(response.hits[randomRecipe].recipe.label);
-      recipeLink.text(response.hits[randomRecipe].recipe.url);
-      recipeImage.attr("src", response.hits[randomRecipe].recipe.image);
+      cardTitleE1.text(response.hits[randomRecipe].recipe.label);
+      cardTextE1.text("Click here for link to recipe");
+      cardTextE1.attr("href", response.hits[randomRecipe].recipe.url);
+      cardTextE1.attr("target", "_blank");
+      cardImageE1.attr("src", response.hits[randomRecipe].recipe.image);
+      
       // Display the recipe on the DOM
-      anotherRecipeCard.append(recipeTitle); 
-      anotherRecipeCard.append(recipeImage);
-      anotherRecipeCard.append(recipeLink); 
-      recipeCard.append(anotherRecipeCard)
-
+      recipeSection.append(cardTitleE1); 
+      recipeSection.append(cardImageE1);
+      recipeSection.append(cardTextE1); 
       }
-    }
- 
-  })};
+  })
+};
+
+
+
+
